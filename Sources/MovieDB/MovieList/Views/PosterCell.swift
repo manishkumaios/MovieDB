@@ -53,7 +53,7 @@ final class PosterCell: UITableViewCell {
                             targetSize: targetSize
                         )
                         self.posterView.image = scaledImage
-                        layoutIfNeeded()
+                        self.layoutIfNeeded()
                     case .error(_):
                         break
                     }
