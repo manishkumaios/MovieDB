@@ -2,11 +2,20 @@
   "object": {
     "pins": [
       {
+        "package": "Alamofire",
+        "repositoryURL": "https://github.com/Alamofire/Alamofire.git",
+        "state": {
+          "branch": null,
+          "revision": "f82c23a8a7ef8dc1a49a8bfc6a96883e79121864",
+          "version": "5.5.0"
+        }
+      },
+      {
         "package": "CorePackage",
         "repositoryURL": "https://github.com/manishkumaios/CorePackage.git",
         "state": {
           "branch": "main",
-          "revision": "447b059d09aa3d74381d07510cfd5f35c90908af",
+          "revision": "ce990c44a41e3cd953b1bfb7e9de2010e3dcfb1d",
           "version": null
         }
       },
@@ -15,7 +24,7 @@
         "repositoryURL": "https://github.com/manishkumaios/NetworkPackage.git",
         "state": {
           "branch": "main",
-          "revision": "36f8cfe3966e38f01b0640005dbfe5ce5aa54fa9",
+          "revision": "9be71145fa3fe39c4e2b3445db6d504e0926cbd2",
           "version": null
         }
       }
