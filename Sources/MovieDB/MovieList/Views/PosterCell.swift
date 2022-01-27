@@ -36,21 +36,23 @@ final class PosterCell: UITableViewCell {
         posterView.rightAnchor.constraint(equalTo: contentView.rightAnchor, constant: 8.0).isActive = true
         posterView.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 8.0).isActive = true
         posterView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: 8.0).isActive = true
-        posterView.heightAnchor.constraint(equalToConstant: 200.0).isActive = true
-        self.addShadow(shadowColor: .darkGray, offSet: CGSize.init(width: self.bounds.width, height: 200.0), opacity: 0.8, shadowRadius: 8.0, cornerRadius: 8.0, corners: .allCorners)
+        posterView.heightAnchor.constraint(equalToConstant: 350.0).isActive = true
         backgroundColor = .lightGray
-        self.configureAndStartShimmering()
     }
-    
+
     func configure(cellViewModel: PosterCellViewModel) {
         guard (posterView.image != nil) else {
             cellViewModel.fetchImage(callback: {(status, data) in
                 DispatchQueue.main.async {
-                    self.stopShimmering()
                     switch status {
                     case .success:
                         guard let data = data else { return}
-                        self.posterView.image = UIImage.init(data: data)
+                        let originalImage = UIImage.init(data: data)
+                        let targetSize = CGSize(width: self.bounds.width, height: 350.0)
+                        let scaledImage = originalImage?.scalePreservingAspectRatio(
+                            targetSize: targetSize
+                        )
+                        self.posterView.image = scaledImage
                     case .error(_):
                         break
                     }
