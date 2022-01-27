@@ -26,7 +26,7 @@ class PosterCellViewModel {
         guard let posterPath = movie.posterPath else {
             callback(.error(.unexpected), nil)
             return }
-        dataManager.fetchMoviePoster(size: "500", imagePosterUrl: posterPath) { status, data in
+        dataManager.fetchMoviePoster(size: "w500", imagePosterUrl: posterPath) { status, data in
             callback(status, data)
         }
     }
