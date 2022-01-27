@@ -37,7 +37,7 @@ final class PosterCell: UITableViewCell {
         posterView.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 8.0).isActive = true
         posterView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: 8.0).isActive = true
         posterView.heightAnchor.constraint(equalToConstant: 200.0).isActive = true
-        self.addShadow(shadowColor: .darkGray, offSet: self.bounds.size, opacity: 0.8, shadowRadius: 8.0, cornerRadius: 8.0, corners: .allCorners)
+        self.addShadow(shadowColor: .darkGray, offSet: CGSize.init(width: self.bounds.width, height: 200.0), opacity: 0.8, shadowRadius: 8.0, cornerRadius: 8.0, corners: .allCorners)
         backgroundColor = .lightGray
         self.configureAndStartShimmering()
     }
@@ -46,7 +46,7 @@ final class PosterCell: UITableViewCell {
         guard (posterView.image != nil) else {
             cellViewModel.fetchImage(callback: {(status, data) in
                 DispatchQueue.main.async {
-                   // self.stopShimmering()
+                    self.stopShimmering()
                     switch status {
                     case .success:
                         guard let data = data else { return}
