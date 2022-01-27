@@ -28,7 +28,8 @@ let package = Package(
                   ]),
         .testTarget(
             name: "MovieDBTests",
-            dependencies: ["MovieDB"]),
-        
-    ]
+            dependencies: ["MovieDB", "CorePackage"],
+            resources: [
+               .copy("Resources/MovieList.json"),
+             ]),]
 )
