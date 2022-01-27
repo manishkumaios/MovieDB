@@ -20,9 +20,14 @@ let package = Package(
         // Targets can depend on other targets in this package, and on products in packages this package depends on.
         .target(
             name: "MovieDB",
-            dependencies: [.byNameItem(name: "CorePackage", condition: nil)]),
+            dependencies: [.byNameItem(name: "CorePackage", condition: nil)],
+            path: "Sources/MovieDB/Resources",
+            swiftSettings: [
+                    .define("SPM")
+                  ]),
         .testTarget(
             name: "MovieDBTests",
             dependencies: ["MovieDB"]),
+        
     ]
 )

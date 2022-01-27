@@ -7,6 +7,9 @@
 
 import Foundation
 import UIKit
+#if SWIFT_PACKAGE
+let resourceBundle = Bundle.module
+#endif
 
 protocol CellRegisteringProtocol {
     func registerCellWithNib(with aClass: AnyClass, for tableView: UITableView)
@@ -24,10 +27,10 @@ extension CellRegisteringProtocol {
         let cellReuseIdentifier = String(describing: aClass)
         self.registerCellWithNib(with: aClass, cellReuseIdentifier: cellReuseIdentifier, for: tableView)
     }
-    
+  
     private func registerCellWithNib(with aClass: AnyClass, cellReuseIdentifier: String, for tableView: UITableView) {
         let nibName =  String(describing: aClass)
-        let bundle = Bundle(for: MovieListViewController.self)
+        let bundle = resourceBundle
         let nib = UINib.init(nibName: nibName, bundle: bundle)
         tableView.register(nib, forCellReuseIdentifier: cellReuseIdentifier)
     }
