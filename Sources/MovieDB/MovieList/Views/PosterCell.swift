@@ -35,7 +35,7 @@ final class PosterCell: UITableViewCell {
         posterView.leftAnchor.constraint(equalTo: contentView.leftAnchor, constant: 8.0).isActive = true
         posterView.rightAnchor.constraint(equalTo: contentView.rightAnchor, constant: 8.0).isActive = true
         posterView.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 8.0).isActive = true
-        posterView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: 8.0).isActive = true
+        posterView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -8.0).isActive = true
         posterView.heightAnchor.constraint(equalToConstant: 400.0).isActive = true
     }
     
