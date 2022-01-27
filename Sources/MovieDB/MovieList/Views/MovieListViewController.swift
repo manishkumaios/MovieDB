@@ -45,7 +45,9 @@ final class MovieListViewController: MovieDBBaseViewController, CellRegisteringP
             case .error(_):
                 break
             case .reload:
-                self.tableView.reloadData()
+                DispatchQueue.main.async {
+                    self.tableView.reloadData()
+                }
             }
         }
     }
