@@ -1,20 +1,17 @@
 //
-//  File.swift
+//  MovieDetailCellViewModel.swift
 //  
 //
-//  Created by MANISH KUMAR on 1/26/22.
+//  Created by MANISH KUMAR on 1/27/22.
 //
 
 import Foundation
-import UIKit
 import CorePackage
 
-
-
-class PosterCellViewModel: ImageProviding {
-    private(set) var movie: Movie
+struct MovieDetailCellViewModel: ImageProviding {
+    private(set) var movie: MovieDetailModel
     private var dataManager: MovieDataManaging
-    init(movie: Movie, dataManager: MovieDataManaging) {
+    init(movie: MovieDetailModel, dataManager: MovieDataManaging) {
         self.movie = movie
         self.dataManager = dataManager
     }
@@ -23,7 +20,7 @@ class PosterCellViewModel: ImageProviding {
         guard let posterPath = movie.posterPath else {
             callback(.error(.unexpected), nil)
             return }
-        self.fetchImage(size: "w500", path: posterPath, dataManager: dataManager) { status, data in
+        self.fetchImage(size: "w185", path: posterPath, dataManager: dataManager) { status, data in
             callback(status, data)
         }
     }

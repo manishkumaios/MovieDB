@@ -12,6 +12,8 @@ struct MovieDetailModel: Decodable {
     private(set) var status: String?
     private(set) var tagline: String?
     private(set) var releaseDate: String?
+    private(set) var posterPath: String?
+    private(set) var overview: String?
     private(set) var productionCompanies: [ProductionCompanies]?
     private(set) var spokenLanguages: [SpokenLanguages]?
     
@@ -19,9 +21,11 @@ struct MovieDetailModel: Decodable {
         case title
         case status
         case tagline
+        case overview
         case releaseDate = "release_date"
         case productionCompanies = "production_companies"
         case spokenLanguages = "spoken_languages"
+        case posterPath = "poster_path"
     }
     
     init(from decoder: Decoder) throws {
@@ -32,6 +36,8 @@ struct MovieDetailModel: Decodable {
         releaseDate = try? container.decodeIfPresent(String.self, forKey: .releaseDate)
         productionCompanies = try? container.decodeIfPresent([ProductionCompanies].self, forKey: .productionCompanies)
         spokenLanguages = try? container.decodeIfPresent([SpokenLanguages].self, forKey: .spokenLanguages)
+        posterPath =  try? container.decodeIfPresent(String.self, forKey: .posterPath)
+        overview = try? container.decodeIfPresent(String.self, forKey: .overview)
     }
 }
 

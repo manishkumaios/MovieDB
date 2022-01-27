@@ -8,49 +8,11 @@
 import Foundation
 import UIKit
 
-enum CellType {
-    case title
-    case status
-    case tagLine
-    case releaseDate
-    case productionCompanies
-    case spokenLanguages
-    
-    func getDescription(from model: MovieDetailModel) -> (title: String, detail: String) {
-        switch self {
-        case .title:
-            return ("Title", model.title ?? "")
-        case .status:
-            return ("Status", model.status ?? "Unavailable")
-        case .tagLine:
-            return ("TagLine", model.tagline ?? "Unavailable")
-        case .releaseDate:
-            return ("Release date", model.releaseDate ?? "Unavailable")
-        case .productionCompanies:
-            let companies = model.productionCompanies
-            var companiesSupport = ""
-            //            companies.map { company in
-            //                companiesSupport = companiesSupport + company.name + ", "
-            //            }
-            return ("Production Companies", companiesSupport)
-        case .spokenLanguages:
-            let languages = model.spokenLanguages
-            var languageSupport = ""
-            //            languages.map { languages in
-            //                languageSupport = languageSupport + languages.englishName + ", "
-            //            }
-            return ("Luanguages released", languageSupport)
-        }
-        
-    }
-}
-
 final class MovieDetailViewModel: ViewModeling {
     
     private(set) var dataManager: MovieDataManaging
     var uiCallback: ((VMCallback) -> Void)?
     private var movieId: Int?
-    private(set) var dataSource: [CellType] = []
     private var detailModel: MovieDetailModel?
     
     required init(dataManager: MovieDataManaging) {
@@ -63,20 +25,17 @@ final class MovieDetailViewModel: ViewModeling {
     }
     
     var numberOfRows: Int {
-        return dataSource.count
+        return 1
     }
     
     var screenTitle: String {
         return "Movie Detail"
     }
     
-    func fetchCellData(for cellType: CellType) -> (title: String, detail: String) {
-        guard let detailModel = detailModel else {
-            return ("", "")
-        }
-
-        return cellType.getDescription(from: detailModel)
-    }
+   lazy var cellViewModel: MovieDetailCellViewModel = {
+       return MovieDetailCellViewModel.init(movie: detailModel! , dataManager: dataManager)
+    }()
+    
     
     func fetchMovieDetail() {
         guard let movieId = movieId else {
@@ -100,31 +59,6 @@ final class MovieDetailViewModel: ViewModeling {
     private func processModel(processModel: MovieDetailModel) {
         defer {
             self.uiCallback?(.reload)
-        }
-        //First reset
-        dataSource.removeAll()
-        if !(processModel.title?.isEmpty ?? false) {
-            dataSource.append(.title)
-        }
-        
-        if !(processModel.status?.isEmpty ?? false) {
-            dataSource.append(.status)
-        }
-        
-        if !(processModel.tagline?.isEmpty ?? false) {
-            dataSource.append(.tagLine)
-        }
-        
-        if !(processModel.releaseDate?.isEmpty ?? false) {
-            dataSource.append(.releaseDate)
-        }
-        
-        if !(processModel.productionCompanies?.isEmpty ?? false) {
-            dataSource.append(.productionCompanies)
-        }
-        
-        if !(processModel.spokenLanguages?.isEmpty ?? false) {
-            dataSource.append(.spokenLanguages)
         }
         self.detailModel = processModel
     }
