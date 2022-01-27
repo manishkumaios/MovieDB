@@ -36,7 +36,7 @@ extension CellRegisteringProtocol {
 extension UIImage {
     func scalePreservingAspectRatio(targetSize: CGSize) -> UIImage {
         // Determine the scale factor that preserves aspect ratio
-        let widthRatio = 1 //targetSize.width / size.width
+        let widthRatio = 1.0 //targetSize.width / size.width
         let heightRatio = targetSize.height / size.height
         
         let scaleFactor = min(widthRatio, heightRatio)
