@@ -10,7 +10,7 @@ import CorePackage
 
 struct ApiContants {
     static let baseURL = "https://api.themoviedb.org/3/movie"
-    static let baseImageURL  = "https://image.tmdb.org/t/p/"
+    static let baseImageURL  = "https://image.tmdb.org/t/p"
     static let listApiPath = "%@/popular?api_key=%@&language=%@&page=%d"
     static let imageDownloadPath = "%@/%@/%@"
     static let detailApiPath = "%@/%@?api_key=%@&language=%@"
