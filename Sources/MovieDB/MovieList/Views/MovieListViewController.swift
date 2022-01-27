@@ -32,6 +32,7 @@ final class MovieListViewController: MovieDBBaseViewController, CellRegisteringP
         super.viewDidLoad()
         setupUI()
         title = viewModel.screenTitle
+        tableView.estimatedRowHeight = 600
     }
     
     override func viewWillAppear(_ animated: Bool) {

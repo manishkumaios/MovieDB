@@ -38,7 +38,7 @@ final class PosterCell: UITableViewCell {
         posterView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: 8.0).isActive = true
         posterView.heightAnchor.constraint(equalToConstant: 400.0).isActive = true
     }
-
+    
     func configure(cellViewModel: PosterCellViewModel) {
         
         guard (posterView.image != nil) else {
