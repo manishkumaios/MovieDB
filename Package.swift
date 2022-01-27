@@ -21,7 +21,7 @@ let package = Package(
         .target(
             name: "MovieDB",
             dependencies: [.byNameItem(name: "CorePackage", condition: nil)],
-            path: "Sources/MovieDB/Resources",
+            path: "Sources",
             swiftSettings: [
                     .define("SPM")
                   ]),
