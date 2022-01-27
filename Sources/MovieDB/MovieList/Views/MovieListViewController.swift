@@ -31,6 +31,7 @@ final class MovieListViewController: MovieDBBaseViewController, CellRegisteringP
     override func viewDidLoad() {
         super.viewDidLoad()
         setupUI()
+        title = viewModel.screenTitle
     }
     
     override func viewWillAppear(_ animated: Bool) {

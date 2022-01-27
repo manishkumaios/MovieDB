@@ -36,10 +36,11 @@ final class PosterCell: UITableViewCell {
         posterView.rightAnchor.constraint(equalTo: contentView.rightAnchor, constant: 8.0).isActive = true
         posterView.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 8.0).isActive = true
         posterView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: 8.0).isActive = true
-        posterView.heightAnchor.constraint(equalToConstant: 350.0).isActive = true
+        posterView.heightAnchor.constraint(equalToConstant: 400.0).isActive = true
     }
 
     func configure(cellViewModel: PosterCellViewModel) {
+        
         guard (posterView.image != nil) else {
             cellViewModel.fetchImage(callback: {(status, data) in
                 DispatchQueue.main.async {
@@ -47,11 +48,12 @@ final class PosterCell: UITableViewCell {
                     case .success:
                         guard let data = data else { return}
                         let originalImage = UIImage.init(data: data)
-                        let targetSize = CGSize(width: self.bounds.width, height: 350.0)
+                        let targetSize = CGSize(width: self.bounds.width, height: 400.0)
                         let scaledImage = originalImage?.scalePreservingAspectRatio(
                             targetSize: targetSize
                         )
                         self.posterView.image = scaledImage
+                        layoutIfNeeded()
                     case .error(_):
                         break
                     }
