@@ -15,7 +15,7 @@
         "repositoryURL": "https://github.com/manishkumaios/CorePackage.git",
         "state": {
           "branch": "main",
-          "revision": "9e679a400d842dee1efa49db781a01f3575ae476",
+          "revision": "8792fc3202ce8329aa772d5bda5fce25e7204fda",
           "version": null
         }
       },
@@ -24,7 +24,7 @@
         "repositoryURL": "https://github.com/manishkumaios/NetworkPackage.git",
         "state": {
           "branch": "main",
-          "revision": "9be71145fa3fe39c4e2b3445db6d504e0926cbd2",
+          "revision": "e5d5fc4ae42c8f885ae3552a104a071a7146fb54",
           "version": null
         }
       }
