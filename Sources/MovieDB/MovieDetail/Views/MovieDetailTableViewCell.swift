@@ -28,7 +28,7 @@ class MovieDetailTableViewCell: UITableViewCell {
         titleLabel.text = cellViewModel.movie.title
         taglineLabel.text = cellViewModel.movie.tagline
         overviewLabel.text = cellViewModel.movie.overview
-        releaseDateLabel.text = "Release date \(cellViewModel.movie.releaseDate)"
+        releaseDateLabel.text = "Release date \(cellViewModel.movie.releaseDate ?? "Unknown")"
         releaseStatusLabel.text = cellViewModel.movie.status
         
         guard (posterView.image != nil) else {
