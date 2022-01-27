@@ -33,7 +33,6 @@ final class MovieListViewController: MovieDBBaseViewController, CellRegisteringP
         setupUI()
         title = viewModel.screenTitle
         tableView.estimatedRowHeight = 600
-        tableView.separatorStyle = .singleLine
     }
     
     override func viewWillAppear(_ animated: Bool) {

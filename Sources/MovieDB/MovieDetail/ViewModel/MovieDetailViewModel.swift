@@ -25,7 +25,7 @@ final class MovieDetailViewModel: ViewModeling {
     }
     
     var numberOfRows: Int {
-        guard let detailModel = detailModel else {
+        guard detailModel != nil else {
             return 0
         }
 
