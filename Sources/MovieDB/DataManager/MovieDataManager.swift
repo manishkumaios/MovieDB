@@ -54,7 +54,7 @@ struct MovieDataManager: MovieDataManaging {
     //https://image.tmdb.org/t/p/w185/oifhfVhUcuDjE61V5bS5dfShQrm.jpg
     func fetchMoviePoster(size: String, imagePosterUrl: String, callback: @escaping (ApiStatus, Data?) -> Void) {
         let networkProvider = NetworkApiProvider(dataSource: self)
-        let downloadImageURL = String(format: ApiContants.imageDownloadPath, ApiContants.baseURL, size,imagePosterUrl)
+        let downloadImageURL = String(format: ApiContants.imageDownloadPath, ApiContants.baseImageURL, size,imagePosterUrl)
         networkProvider.downloadImages(url: downloadImageURL, params: nil) { (data, status) in
             callback(status, data)
         }
