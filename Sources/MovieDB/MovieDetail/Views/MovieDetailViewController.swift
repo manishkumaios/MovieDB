@@ -65,7 +65,7 @@ extension MovieDetailViewController: UITableViewDataSource {
         
         let cellType = viewModel.dataSource[indexPath.row]
         let configureTuple = viewModel.fetchCellData(for: cellType)
-        cell.configureUI(title: configureTuple.title, detail: configureTuple.title)
+        cell.configureUI(title: configureTuple.title, detail: configureTuple.detail)
         
         return cell
         
