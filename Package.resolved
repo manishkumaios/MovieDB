@@ -1,0 +1,25 @@
+{
+  "object": {
+    "pins": [
+      {
+        "package": "CorePackage",
+        "repositoryURL": "https://github.com/manishkumaios/CorePackage.git",
+        "state": {
+          "branch": "main",
+          "revision": "447b059d09aa3d74381d07510cfd5f35c90908af",
+          "version": null
+        }
+      },
+      {
+        "package": "NetworkPackage",
+        "repositoryURL": "https://github.com/manishkumaios/NetworkPackage.git",
+        "state": {
+          "branch": "main",
+          "revision": "36f8cfe3966e38f01b0640005dbfe5ce5aa54fa9",
+          "version": null
+        }
+      }
+    ]
+  },
+  "version": 1
+}
