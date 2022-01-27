@@ -23,6 +23,25 @@ class MovieDetailViewController: MovieDBBaseViewController, CellRegisteringProto
     override func viewDidLoad() {
         super.viewDidLoad()
     }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        viewModel.fetchMovieDetail()
+        viewModel.uiCallback = {(callback) in
+            switch callback {
+            case .startApi:
+                break
+            case .endApi:
+                break
+            case .error(_):
+                break
+            case .reload:
+                DispatchQueue.main.async {
+                    self.tableView.reloadData()
+                }
+            }
+        }
+    }
 }
 
 extension MovieDetailViewController {

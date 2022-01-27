@@ -42,7 +42,7 @@ private extension MovieDBMainCoordinator {
     
     func showDetailScreen(id: Int) {
         let dataManager = MovieDataManager.init(networkProvider: dependencyProvider.networkProvider)
-        let detailViewModel = MovieDetailViewModel.init(dataManager: dataManager)
+        let detailViewModel = MovieDetailViewModel.init(id: id, dataManager: dataManager)
         let controller = MovieDetailViewController.init(viewModel: detailViewModel)
         self.navigationController.pushViewController(controller, animated: true)
     }
