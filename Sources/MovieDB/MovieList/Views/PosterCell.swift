@@ -37,7 +37,7 @@ final class PosterCell: UITableViewCell {
         posterView.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 8.0).isActive = true
         posterView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: 8.0).isActive = true
         posterView.heightAnchor.constraint(equalToConstant: 200.0).isActive = true
-        self.addShadow(shadowColor: .darkGray, offSet: self.bounds, opacity: 0.8, shadowRadius: 8.0, cornerRadius: 8.0, corners: .allCorners)
+        self.addShadow(shadowColor: .darkGray, offSet: self.bounds.size, opacity: 0.8, shadowRadius: 8.0, cornerRadius: 8.0, corners: .allCorners)
         backgroundColor = .lightGray
         self.configureAndStartShimmering()
     }
