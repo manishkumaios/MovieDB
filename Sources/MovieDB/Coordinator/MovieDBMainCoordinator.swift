@@ -18,7 +18,7 @@ public struct MovieDBMainCoordinator: Coordinating {
         self.dependencyProvider = dependencyProvider
     }
     
-    func start() {
+    public func start() {
         showListScreen()
     }
     
