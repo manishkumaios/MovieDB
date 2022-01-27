@@ -66,13 +66,14 @@
                         </subviews>
                     </stackView>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Overview" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7nH-IB-9rX">
-                        <rect key="frame" x="16" y="175" width="283" height="171"/>
+                        <rect key="frame" x="16" y="323.5" width="283" height="22.5"/>
                         <fontDescription key="fontDescription" name="Noteworthy-Light" family="Noteworthy" pointSize="14"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
                 </subviews>
                 <constraints>
+                    <constraint firstItem="7nH-IB-9rX" firstAttribute="top" relation="greaterThanOrEqual" secondItem="GfD-VR-fFd" secondAttribute="bottom" priority="999" constant="20" id="HML-TX-5er"/>
                     <constraint firstItem="GfD-VR-fFd" firstAttribute="top" secondItem="O2Y-M3-e7M" secondAttribute="top" id="KJh-zM-5pt"/>
                     <constraint firstItem="GfD-VR-fFd" firstAttribute="leading" secondItem="O2Y-M3-e7M" secondAttribute="trailing" constant="29" id="U1a-vC-PPb"/>
                     <constraint firstAttribute="trailing" secondItem="GfD-VR-fFd" secondAttribute="trailing" constant="21" id="W61-Gx-Rd8"/>
@@ -80,9 +81,8 @@
                     <constraint firstItem="7nH-IB-9rX" firstAttribute="trailing" secondItem="GfD-VR-fFd" secondAttribute="trailing" id="cTK-3O-bAb"/>
                     <constraint firstAttribute="bottom" secondItem="7nH-IB-9rX" secondAttribute="bottom" constant="24" id="cbS-MI-vhZ"/>
                     <constraint firstItem="O2Y-M3-e7M" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="16" id="cit-M3-emy"/>
-                    <constraint firstItem="7nH-IB-9rX" firstAttribute="top" relation="greaterThanOrEqual" secondItem="GfD-VR-fFd" secondAttribute="bottom" constant="51" id="eaL-eM-MPo"/>
                     <constraint firstItem="O2Y-M3-e7M" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="24" id="hde-sh-Tzc"/>
-                    <constraint firstItem="7nH-IB-9rX" firstAttribute="top" secondItem="O2Y-M3-e7M" secondAttribute="bottom" constant="31" id="zdy-Yo-b6w"/>
+                    <constraint firstItem="7nH-IB-9rX" firstAttribute="top" relation="greaterThanOrEqual" secondItem="O2Y-M3-e7M" secondAttribute="bottom" priority="999" constant="10" id="qVl-nc-MqB"/>
                 </constraints>
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
