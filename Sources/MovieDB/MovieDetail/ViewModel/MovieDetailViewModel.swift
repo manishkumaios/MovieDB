@@ -49,16 +49,16 @@ final class MovieDetailViewModel: ViewModeling {
     
     private(set) var dataManager: MovieDataManaging
     var uiCallback: ((VMCallback) -> Void)?
-    private let id: Int
+    private var movieId: Int?
     private(set) var dataSource: [CellType] = []
     
     required init(dataManager: MovieDataManaging) {
         self.dataManager = dataManager
     }
     
-    convenience init(id: Int, dataManager: MovieDataManaging) {
-        self.id = id
+    required convenience init(id: Int, dataManager: MovieDataManaging) {
         self.init(dataManager: dataManager)
+        self.movieId = id
     }
     
     var numberOfRows: Int {
@@ -70,8 +70,12 @@ final class MovieDetailViewModel: ViewModeling {
     }
     
     func fetchMovieDetail() {
+        guard let movieId = movieId else {
+            return
+        }
+
         uiCallback?(.startApi)
-        dataManager.fetchMovieDetails(id: "\(id)") {[weak self] (status, responseModel) in
+        dataManager.fetchMovieDetails(id: "\(movieId)") {[weak self] (status, responseModel) in
             guard let self = `self` else { return }
             self.uiCallback?(.endApi)
             switch status {
