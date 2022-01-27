@@ -37,7 +37,6 @@ final class PosterCell: UITableViewCell {
         posterView.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 8.0).isActive = true
         posterView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: 8.0).isActive = true
         posterView.heightAnchor.constraint(equalToConstant: 350.0).isActive = true
-        backgroundColor = .lightGray
     }
 
     func configure(cellViewModel: PosterCellViewModel) {
