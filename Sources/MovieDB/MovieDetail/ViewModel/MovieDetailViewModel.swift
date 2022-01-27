@@ -16,8 +16,8 @@ enum CellType {
     case productionCompanies
     case spokenLanguages
     
-    func getDescription(from model: MovieDetailModel, for cellType: Self) -> (title: String, detail: String) {
-        switch cellType {
+    func getDescription(from model: MovieDetailModel) -> (title: String, detail: String) {
+        switch self {
         case .title:
             return ("Title", model.title ?? "")
         case .status:
@@ -51,6 +51,7 @@ final class MovieDetailViewModel: ViewModeling {
     var uiCallback: ((VMCallback) -> Void)?
     private var movieId: Int?
     private(set) var dataSource: [CellType] = []
+    private var detailModel: MovieDetailModel?
     
     required init(dataManager: MovieDataManaging) {
         self.dataManager = dataManager
@@ -67,6 +68,14 @@ final class MovieDetailViewModel: ViewModeling {
     
     var screenTitle: String {
         return "Movie Detail"
+    }
+    
+    func fetchCellData(for cellType: CellType) -> (title: String, detail: String) {
+        guard let detailModel = detailModel else {
+            return ("", "")
+        }
+
+        return cellType.getDescription(from: detailModel)
     }
     
     func fetchMovieDetail() {
@@ -117,5 +126,6 @@ final class MovieDetailViewModel: ViewModeling {
         if !(processModel.spokenLanguages?.isEmpty ?? false) {
             dataSource.append(.spokenLanguages)
         }
+        self.detailModel = processModel
     }
 }

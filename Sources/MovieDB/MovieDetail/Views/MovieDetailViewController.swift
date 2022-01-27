@@ -22,6 +22,7 @@ class MovieDetailViewController: MovieDBBaseViewController, CellRegisteringProto
     }
     override func viewDidLoad() {
         super.viewDidLoad()
+        setupUI()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -63,6 +64,8 @@ extension MovieDetailViewController: UITableViewDataSource {
         }
         
         let cellType = viewModel.dataSource[indexPath.row]
+        let configureTuple = viewModel.fetchCellData(for: cellType)
+        cell.configureUI(title: configureTuple.title, detail: configureTuple.title)
         
         return cell
         
