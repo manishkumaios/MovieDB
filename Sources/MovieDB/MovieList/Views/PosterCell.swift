@@ -40,7 +40,9 @@ final class PosterCell: UITableViewCell {
     }
     
     func configure(cellViewModel: PosterCellViewModel) {
-        
+        defer {
+            layoutIfNeeded()
+        }
         guard (posterView.image != nil) else {
             cellViewModel.fetchImage(callback: {(status, data) in
                 DispatchQueue.main.async {
