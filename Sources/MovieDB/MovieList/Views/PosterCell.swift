@@ -10,9 +10,8 @@ import UIKit
 final class PosterCell: UITableViewCell {
     let posterView:UIImageView = {
         let img = UIImageView()
-        img.contentMode = .scaleAspectFill
+        img.contentMode = .scaleAspectFit
         img.translatesAutoresizingMaskIntoConstraints = false
-        img.layer.cornerRadius = 8
         img.clipsToBounds = true
         return img
     }()
@@ -33,13 +32,14 @@ final class PosterCell: UITableViewCell {
     
     private func setupUI() {
         contentView.addSubview(posterView)
-        posterView.leftAnchor.constraint(equalTo: contentView.leftAnchor).isActive = true
-        posterView.rightAnchor.constraint(equalTo: contentView.rightAnchor).isActive = true
-        posterView.topAnchor.constraint(equalTo: contentView.topAnchor).isActive = true
-        posterView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor).isActive = true
+        posterView.leftAnchor.constraint(equalTo: contentView.leftAnchor, constant: 8.0).isActive = true
+        posterView.rightAnchor.constraint(equalTo: contentView.rightAnchor, constant: 8.0).isActive = true
+        posterView.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 8.0).isActive = true
+        posterView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: 8.0).isActive = true
         posterView.heightAnchor.constraint(equalToConstant: 200.0).isActive = true
-//        self.addShadow(shadowColor: .darkGray, offSet: self.intrinsicContentSize, opacity: 0.8, shadowRadius: 8.0, cornerRadius: 8.0, corners: .allCorners)
-//        self.configureAndStartShimmering()
+        self.addShadow(shadowColor: .darkGray, offSet: self.bounds, opacity: 0.8, shadowRadius: 8.0, cornerRadius: 8.0, corners: .allCorners)
+        backgroundColor = .lightGray
+        self.configureAndStartShimmering()
     }
     
     func configure(cellViewModel: PosterCellViewModel) {
